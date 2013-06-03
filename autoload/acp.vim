@@ -146,6 +146,22 @@ function acp#meetsForHtmlOmni(context)
         \              g:acp_behaviorHtmlOmniLength . ',}$'
 endfunction
 
+function acp#meetsForCOmni(context)
+  if g:acp_behaviorCOmniLength < 0
+    return 0
+  endif
+  let matches = matchlist(a:context, '\(\k\{' . g:acp_behaviorCOmniLength . ',}\)$')
+  if empty(matches)
+    return 0
+  endif
+  for ignore in g:acp_behaviorKeywordIgnores
+    if stridx(ignore, matches[1]) == 0
+      return 0
+    endif
+  endfor
+  return 1
+endfunction
+
 "
 function acp#meetsForCssOmni(context)
   if g:acp_behaviorCssOmniPropertyLength >= 0 &&

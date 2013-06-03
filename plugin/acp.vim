@@ -35,6 +35,7 @@ function s:makeDefaultBehavior()
         \   'html'   : [],
         \   'xhtml'  : [],
         \   'css'    : [],
+  		\ 	'c' 	 : [],
         \ }
   "---------------------------------------------------------------------------
   if !empty(g:acp_behaviorUserDefinedFunction) &&
@@ -117,6 +118,11 @@ function s:makeDefaultBehavior()
         \   'repeat'  : 0,
         \ })
   "---------------------------------------------------------------------------
+  call add(behavs.c, {
+        \   'command' : "\<C-x>\<C-u>",
+        \   'meets'   : 'acp#meetsForCOmni',
+        \   'repeat'  : 0,
+        \ })
   return behavs
 endfunction
 
@@ -143,6 +149,7 @@ call s:defineOption('g:acp_behaviorPythonOmniLength', 0)
 call s:defineOption('g:acp_behaviorPerlOmniLength', -1)
 call s:defineOption('g:acp_behaviorXmlOmniLength', 0)
 call s:defineOption('g:acp_behaviorHtmlOmniLength', 0)
+call s:defineOption('g:acp_behaviorCOmniLength', 2)
 call s:defineOption('g:acp_behaviorCssOmniPropertyLength', 1)
 call s:defineOption('g:acp_behaviorCssOmniValueLength', 0)
 call s:defineOption('g:acp_behavior', {})
