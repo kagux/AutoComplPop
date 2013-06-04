@@ -2,11 +2,13 @@ Why am I doing this?
 
 clang_complete is a wonderful plugin to complete c-family code. It only automatically completes after ->, ., ::. In C, we always invoke functions directly, which are not started with ->, ., or ::. Then, I want to use ACP to pop chioces automatically when I type serveral characters. ACP provides g:acp_behavior-completefunc and g:acp_behaviorUserDefinedMeets for user-defined completion. However, I cannot find doc to tell me how to set this option. Therefore, I modify the code to support autocomplpop in C.
 
+Besides, I modify the code to support javacomplete.
+
 Some options:
 au FileType c let g:acp_behaviorKeywordLength = -1
 #Do not use keyword completion, clang_complete is much better.
 
-optional:
+Optional options:
 au FileType c let g:acp_behaviorCOmniLength = N
 #default is 2. When you type N characters, it pops choices automatically using clang_complete.
 

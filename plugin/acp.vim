@@ -35,7 +35,8 @@ function s:makeDefaultBehavior()
         \   'html'   : [],
         \   'xhtml'  : [],
         \   'css'    : [],
-  		\ 	'c' 	 : [],
+        \   'c'      : [],
+        \   'java'   : [],
         \ }
   "---------------------------------------------------------------------------
   if !empty(g:acp_behaviorUserDefinedFunction) &&
@@ -123,6 +124,12 @@ function s:makeDefaultBehavior()
         \   'meets'   : 'acp#meetsForCOmni',
         \   'repeat'  : 0,
         \ })
+  "---------------------------------------------------------------------------
+  call add(behavs.java, {
+        \   'command' : "\<C-x>\<C-o>",
+        \   'meets'   : 'acp#meetsForJavaOmni',
+        \   'repeat'  : 0,
+        \ })
   return behavs
 endfunction
 
@@ -150,6 +157,7 @@ call s:defineOption('g:acp_behaviorPerlOmniLength', -1)
 call s:defineOption('g:acp_behaviorXmlOmniLength', 0)
 call s:defineOption('g:acp_behaviorHtmlOmniLength', 0)
 call s:defineOption('g:acp_behaviorCOmniLength', 2)
+call s:defineOption('g:acp_behaviorJavaOmniLength', 0)
 call s:defineOption('g:acp_behaviorCssOmniPropertyLength', 1)
 call s:defineOption('g:acp_behaviorCssOmniValueLength', 0)
 call s:defineOption('g:acp_behavior', {})

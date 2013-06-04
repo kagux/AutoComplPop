@@ -162,6 +162,11 @@ function acp#meetsForCOmni(context)
   return 1
 endfunction
 
+function acp#meetsForJavaOmni(context)
+  return g:acp_behaviorJavaOmniLength >= 0 &&
+        \ a:context =~ '\k\.\k\{' . g:acp_behaviorJavaOmniLength . ',}$'
+endfunction
+
 "
 function acp#meetsForCssOmni(context)
   if g:acp_behaviorCssOmniPropertyLength >= 0 &&
