@@ -147,6 +147,10 @@ function acp#meetsForHtmlOmni(context)
 endfunction
 
 function acp#meetsForCOmni(context)
+  if acp#meetsForFile(a:context)
+	return 0
+  endif
+
   if g:acp_behaviorCOmniLength < 0
     return 0
   endif
