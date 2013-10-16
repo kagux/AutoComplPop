@@ -36,6 +36,7 @@ function s:makeDefaultBehavior()
         \   'xhtml'  : [],
         \   'css'    : [],
         \   'c'      : [],
+        \   'php'    : [],
         \   'java'   : [],
         \ }
   "---------------------------------------------------------------------------
@@ -122,6 +123,12 @@ function s:makeDefaultBehavior()
   call add(behavs.c, {
         \   'command' : "\<C-x>\<C-u>",
         \   'meets'   : 'acp#meetsForCOmni',
+        \   'repeat'  : 0,
+        \ })
+  "---------------------------------------------------------------------------
+  call add(behavs.php, {
+        \   'command' : "\<C-x>\<C-o>",
+        \   'meets'   : 'acp#meetsForPhpOmni',
         \   'repeat'  : 0,
         \ })
   "---------------------------------------------------------------------------

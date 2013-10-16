@@ -171,6 +171,17 @@ function acp#meetsForJavaOmni(context)
         \ a:context =~ '\k\.\k\{' . g:acp_behaviorJavaOmniLength . ',}$'
 endfunction
 
+function acp#meetsForPhpOmni(context)
+  if !has('php')
+    return 0
+  endif
+
+  "class instance methods
+  if a:context =~ '[^\]]*->$'
+    return 1
+  endif
+endfunction
+
 "
 function acp#meetsForCssOmni(context)
   if g:acp_behaviorCssOmniPropertyLength >= 0 &&
